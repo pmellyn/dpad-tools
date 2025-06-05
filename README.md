@@ -36,3 +36,30 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Security Setup
+
+### Google Drive Integration
+1. Copy `src/lib/config/google-drive-credentials.example.json` to `src/lib/config/google-drive-credentials.json`
+2. Get your credentials from [Google Cloud Console](https://console.cloud.google.com):
+   - Create a new project or select existing one
+   - Enable Google Drive API
+   - Create a service account
+   - Download the JSON credentials
+3. Replace the placeholder values in `google-drive-credentials.json` with your actual credentials
+4. **NEVER** commit the actual credentials file to Git
+
+### Environment Variables
+1. Copy `.env.example` to `.env`
+2. Fill in your environment variables:
+   - Database connection strings
+   - API keys
+   - Other sensitive configuration
+3. **NEVER** commit the `.env` file to Git
+
+### Security Best Practices
+- Keep all credentials and secrets in environment variables or secure credential files
+- Regularly rotate API keys and credentials
+- Use service accounts with minimal required permissions
+- Enable 2FA for all development accounts
+- Review access logs regularly

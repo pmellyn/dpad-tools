@@ -1,5 +1,22 @@
 import type { Handle } from '@sveltejs/kit';
 import * as auth from '$lib/server/auth';
+import { sequence } from '@sveltejs/kit/hooks';
+import { dev } from '$app/environment';
+
+// Validate required environment variables
+const requiredEnvVars = [
+	'DATABASE_URL',
+	'SESSION_SECRET',
+	'JWT_SECRET'
+];
+
+if (!dev) {
+	for (const envVar of requiredEnvVars) {
+		if (!process.env[envVar]) {
+			throw new Error(`Missing required environment variable: ${envVar}`);
+		}
+	}
+}
 
 const handleAuth: Handle = async ({ event, resolve }) => {
 	// Ignore Chrome DevTools route
@@ -27,4 +44,4 @@ const handleAuth: Handle = async ({ event, resolve }) => {
 	return resolve(event);
 };
 
-export const handle: Handle = handleAuth;
+export const handle = sequence(handleAuth);
