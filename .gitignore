@@ -1,26 +1,57 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
 
-# Output
+# Build outputs
 .output
 .vercel
 .netlify
 .wrangler
 /.svelte-kit
 /build
+/dist
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Env
+# Environment variables
 .env
 .env.*
 !.env.example
 !.env.test
 
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage
+.nyc_output
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Credentials
-src/lib/server/config/google-drive-credentials.json
+# Credentials and secrets
+src/lib/config/google-drive-credentials.json
+**/credentials.json
+**/secrets.json
+**/*.pem
+**/*.key
+**/*.crt
+**/*.p12
+**/*.pfx
+
+# Cache
+.cache
+.temp
+.tmp
