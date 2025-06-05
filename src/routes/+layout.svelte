@@ -4,7 +4,6 @@
 	import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import type { Snippet } from 'svelte';
-	import TcgTradeModal from '$components/tcg-trade/TcgTradeModal.svelte';
 
 	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 </script>
@@ -37,6 +36,12 @@
 							class="rounded-md bg-gray-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500"
 						>
 							Games Workshop
+						</a>
+						<a
+							href="/todo"
+							class="rounded-md bg-gray-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500"
+						>
+							To Do
 						</a>
 						{#if data.user.role === 'Administrator'}
 							<a
